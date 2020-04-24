@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        div{
+            position: absolute;
+            left: 350px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+{% csrf_token %}
+<div>
+<button type="button" onclick="location.href='{% url 'log' %}'">Выйти</button>
+</div>
+WELCOME {{e}}
+<br><br>
+<h4>Список необработанных заявок</h4>
+<button type="button" onclick="location.href='{% url 'check' %}'">Проверить</button>
+</body>
+</html>

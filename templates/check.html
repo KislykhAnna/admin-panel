@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        div{
+            position: absolute;
+            left: 350px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+{% csrf_token %}
+<div>
+<button type="button" onclick="location.href='{% url 'log' %}'">Выйти</button>
+</div>
+WELCOME {{e}}
+<br><br>
+<h4>Список необработанных заявок</h4>
+{% for uid,rec,currentRec in comb_lis %}
+Заявка: {{ rec }} &nbsp; Подробная информация: <a style="text-decoration: none; color: blue !important;" href="/post_check/?z={{uid}}" >{{currentRec}}</a>
+    <br>
+{% endfor %}
+</body>
+</html>

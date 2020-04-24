@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        div{
+            position: absolute;
+            left: 350px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+{% csrf_token %}
+<div>
+<button type="button" onclick="location.href='{% url 'log' %}'">Выйти</button>
+</div>
+WELCOME {{e}}
+<br><br>
+<form action="/record_submit/" method="GET">
+    <table>
+        <tr>
+            <td>Текущая заявка</td><td><input type="text" name="currentrecord" value="{{ r }}" readonly/></td>
+        </tr>
+        <tr>
+            <td>Тема</td><td><input type="text" name="topic" value="{{ t }}" readonly/></td>
+        </tr>
+        <tr>
+            <td>Модель автомобиля </td><td><input type="text" name="carmodel" value="{{ cm }}" readonly/></td>
+        </tr>
+        <tr>
+            <td>Комментарии к заявке </td><td><input type="text" name="comments" value="{{ c }}" readonly/></td>
+        </tr>
+        <tr>
+            <td>Дата </td><td><input type="text" name="date" value="{{ d }}"/></td>
+        </tr>
+        <tr>
+            <td>Клиент </td><td><input type="text" name="userkey" value="{{ u }}" readonly/></td>
+        </tr>
+    </table>
+    <button name="submit">Подтвердить изменения</button>
+</form>
+<br>
+    <button onclick="location.href='{% url 'check' %}'">Назад</button>
+</body>
+</html>
